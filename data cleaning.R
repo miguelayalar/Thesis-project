@@ -127,6 +127,8 @@ summary(trade.urt)
 #when tested for a unit root in variables we were unable to reject the unit root
 #hypothesis. This suggests that the variables has AT LEAST ONE unit root. Varaibles are not I(0)
 
+
+##------ADF unit root test of univariate timeseries in first difference----
 #Difference time series
 drgdp <- diff(rgdp)
 dlprod <- diff(lprod)
@@ -135,7 +137,6 @@ dhcap <- diff(hcap) #we may not use this for our model since it is not WN
 dtrade <- diff(trade)
 dfindev <- diff(findev)
 
-##------ADF unit root test of univariate timeseries in first difference----
 drgdp.urt <- ur.df(drgdp, type = 'drift', selectlags = 'AIC') #intercept
 summary(drgdp.urt) #reject if tcalc < tcrit
 # -3.5035 < -2.89 and we reject the null that gdp has unit root
